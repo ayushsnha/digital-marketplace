@@ -26,7 +26,6 @@ const NavItems = () => {
 
     useEffect(() => {
         const handleOutsideClick = (event:MouseEvent) => {
-            console.log(navRef.current, event.target);
             handleClickOutside(event);
         };
 
