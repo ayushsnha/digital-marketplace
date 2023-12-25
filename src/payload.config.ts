@@ -3,14 +3,22 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { slateEditor } from '@payloadcms/richtext-slate';
 import path from 'path';
 import { buildConfig } from 'payload/config';
+import { Users } from './collections/Users';
+
+import dotenv from 'dotenv'
+
+dotenv.config({
+    path: path.join(__dirname, '../.env')
+})
 
 export default  buildConfig({
     serverURL: process.env.NEXT_PUBLIC_URL || '',
-    collections:[],
+    collections:[Users],
     routes:{
         admin: '/sell'
     },
     admin:{
+        user: 'users',
         bundler: webpackBundler(),
         meta:{
             titleSuffix: '- DigitalHippo',
